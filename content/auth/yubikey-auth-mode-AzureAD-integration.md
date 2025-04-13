@@ -1,14 +1,12 @@
 +++ 
 title = "Yubikey Authentication Modes and Azure AD integration"
 permalink = "https://codepurrpurr.io/auth/yubikey-auth-mode-AzureAD-integration/"
-date = "2025-10-13" 
+date = "2025-4-13" 
 tags = ["AzureAD", "Yubikey", "authentication"] 
 categories = ["authentication", "software", "dev"]
 images = ["/images/yubikey.png"]
 author = "codepurrpurr.io"
 +++
-
-
 
 # Intro
 
