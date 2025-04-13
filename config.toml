@@ -17,7 +17,7 @@ PygmentsStyle = "monokai"
   dateformNumTime = "2006-01-02 15:04"
 
   # Subtitle for home
-  homeSubtitle = "Ramblings of an engineer"
+  homeSubtitle = ""
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
@@ -73,7 +73,7 @@ PygmentsStyle = "monokai"
   url  = "https://www.linkedin.com/in/chris-zhang-000/"
 
   [[params.social]]
-  name = "gitlab"
+  name = "github"
   url  = "https://github.com/codepurrpur"
 
   # And you can even create generic menu
@@ -83,9 +83,9 @@ PygmentsStyle = "monokai"
     url        = "auth/"
 
   [[menu.main]]
-    identifier = "cloud"
-    name       = "Cloud"
-    url        = "cloud/"
+    identifier = "cloudeng"
+    name       = "CloudEng"
+    url        = "cloudeng/"
 
   [[menu.main]]
     identifier = "about"
