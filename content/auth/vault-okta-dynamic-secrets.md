@@ -1,6 +1,6 @@
 +++ 
 title = "HashiCorp Vault - identity based access with dynamic secrets"
-permalink = "https://codepurrpurr.io/identity/vault-okta-dynamic-secrets/"
+permalink = "https://codepurrpurr.io/auth/vault-okta-dynamic-secrets/"
 date = "2023-05-31" 
 tags = ["vault", "iac", "secrets", "authentication"] 
 categories = ["automation", "software", "dev"]
