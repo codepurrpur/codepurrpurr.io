@@ -1,5 +1,5 @@
 baseurl      = "https://codepurrpurr.io"
-title        = "Engineer solutions, secure the cloud."
+title        = "codepurrpurr.io"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
 paginate     = 11
@@ -58,7 +58,7 @@ PygmentsStyle = "monokai"
 
 [languages]
   [languages.en]
-    title = "codepurrpurr.io"
+    title = "Engineer solutions, secure the cloud."
     subtitle = ""
     keywords = ""
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
