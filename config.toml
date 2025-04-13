@@ -1,5 +1,5 @@
 baseurl      = "https://codepurrpurr.io"
-title        = "codepurrpurr.io"
+title        = "Engineer solutions, secure the cloud."
 languageCode = "en-us"
 theme        = "hello-friend-ng"
 paginate     = 11
@@ -67,10 +67,6 @@ PygmentsStyle = "monokai"
     [languages.en.params.logo]
       logoText = "codepurrpurr.io"
       logoHomeLink = "/"
-    # or
-    #
-    # path = "cat-paw.png"
-    # alt = "Your example logo alt text"
 
   [[params.social]]
   name = "linkedin"
@@ -78,27 +74,22 @@ PygmentsStyle = "monokai"
 
   [[params.social]]
   name = "gitlab"
-  url  = "https://gitlab.com/users/abgmbh"
+  url  = "https://github.com/codepurrpur"
 
   # And you can even create generic menu
   [[menu.main]]
-    identifier = "automation"
-    name       = "Automation"
-    url        = "automation/"
+    identifier = "auth"
+    name       = "Auth"
+    url        = "auth/"
 
   [[menu.main]]
-    identifier = "identity"
-    name       = "Identity"
-    url        = "identity/"
+    identifier = "cloud"
+    name       = "Cloud"
+    url        = "cloud/"
 
   [[menu.main]]
     identifier = "about"
     name       = "About"
     url        = "about/"
-
-  [[menu.main]]
-    identifier = "misc"
-    name       = "Misc"
-    url        = "misc/"
 
     
