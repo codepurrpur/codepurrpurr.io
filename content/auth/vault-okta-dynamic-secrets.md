@@ -1,7 +1,7 @@
 +++ 
 title = "HashiCorp Vault - identity based access with dynamic secrets"
 permalink = "https://codepurrpurr.io/auth/vault-okta-dynamic-secrets/"
-date = "2023-05-31" 
+date = "2024-05-31" 
 tags = ["vault", "iac", "secrets", "authentication"] 
 categories = ["automation", "software", "dev"]
 images = ["/images/vault-feature.png"]
