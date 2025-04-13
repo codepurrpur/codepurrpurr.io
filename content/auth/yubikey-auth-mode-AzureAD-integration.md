@@ -1,7 +1,7 @@
 +++ 
 title = "Yubikey Authentication Modes and Azure AD integration"
 permalink = "https://codepurrpurr.io/auth/yubikey-auth-mode-AzureAD-integration/"
-date = "2025-4-10" 
+date = "2025-04-10" 
 tags = ["AzureAD", "Yubikey", "authentication"] 
 categories = ["authentication", "software", "dev"]
 images = ["/images/yubikey.png"]
@@ -56,6 +56,7 @@ My particular use case is to leverage an IDaaS (e.g., Azure AD) as an IDP and us
 Since authentication is offloaded to Azure AD, both the OTP and FIDO2 passwordless authentication methods are now available. Azure AD does not support U2F.
 
 # Azure AD and User Configuration
+
 ## OTP
 
 If Yubikey is used for OTP, Azure AD needs to have MFA enabled, a ‘Conditional Access’ policy is created to ‘Require multi-factor authentication’ for your selected apps. This process is documented by Microsoft ( https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-azure-mfa ).
@@ -74,7 +75,7 @@ The OTP method does not impose special requirements on the browsers, which means
 
 ![APM ](/images/apm.png)
 
-# FIDO2
+## FIDO2
 
 With FIDO2 based passwordless authentication, the ‘FIDO2 Security Key’ option within the Azure AD (e.g., under Security) has to be enabled first.
 
