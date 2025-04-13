@@ -1,0 +1,104 @@
+baseurl      = "https://codepurrpurr.io"
+title        = "codepurrpurr.io"
+languageCode = "en-us"
+theme        = "hello-friend-ng"
+paginate     = 11
+pluralizelisttitles = false
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+
+[permalinks]
+  posts = "/posts/:year/:month/:title/"
+
+[params]
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04"
+
+  # Subtitle for home
+  homeSubtitle = "Ramblings of an engineer"
+
+  # Set disableReadOtherPosts to true in order to hide the links to other posts.
+  disableReadOtherPosts = false
+
+  # Enable sharing buttons, if you like
+  enableSharingButtons = true
+
+  # Metadata mostly used in document's head
+  description = "Latest and insightful technology information for Automation and Identity Access"
+  keywords = "blog, technology, kubernetes, automation, identity access"
+  images = [""]
+
+  defaultTheme = "dark" 
+  PygmentsCodeFences = true
+  PygmentsStyle = "monokai"
+
+  [params.footer]
+  trademark = true
+  rss = true
+  copyright = true
+  author = true
+
+  topText = []
+  bottomText = ["Powered by <a href=\"http://gohugo.io\">Hugo</a>",
+          "Made with &#10084; by codepurrpurr"]
+
+# Colors for favicons
+#
+[params.favicon.color]
+  mask = "#1b1c1d"
+  msapplication = "#1b1c1d"
+  theme = "#1b1c1d"
+
+[taxonomies]
+    category = "blog"
+    tag      = "tags"
+    series   = "series"
+
+[languages]
+  [languages.en]
+    title = "codepurrpurr.io"
+    subtitle = ""
+    keywords = ""
+    copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+    readOtherPosts = "Read other posts"
+
+    [languages.en.params.logo]
+      logoText = "codepurrpurr.io"
+      logoHomeLink = "/"
+    # or
+    #
+    # path = "cat-paw.png"
+    # alt = "Your example logo alt text"
+
+  [[params.social]]
+  name = "linkedin"
+  url  = "https://www.linkedin.com/in/chris-zhang-000/"
+
+  [[params.social]]
+  name = "gitlab"
+  url  = "https://gitlab.com/users/abgmbh"
+
+  # And you can even create generic menu
+  [[menu.main]]
+    identifier = "automation"
+    name       = "Automation"
+    url        = "automation/"
+
+  [[menu.main]]
+    identifier = "identity"
+    name       = "Identity"
+    url        = "identity/"
+
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "about/"
+
+  [[menu.main]]
+    identifier = "misc"
+    name       = "Misc"
+    url        = "misc/"
+
+    
