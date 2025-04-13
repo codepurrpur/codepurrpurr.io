@@ -78,17 +78,17 @@ PygmentsStyle = "monokai"
 
   # And you can even create generic menu
   [[menu.main]]
-    identifier = "auth"
+    identifier = "Auth"
     name       = "Auth"
     url        = "auth/"
 
   [[menu.main]]
-    identifier = "cloudeng"
+    identifier = "CloudEng"
     name       = "CloudEng"
     url        = "cloudeng/"
 
   [[menu.main]]
-    identifier = "about"
+    identifier = "About"
     name       = "About"
     url        = "about/"
 

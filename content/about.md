@@ -5,14 +5,11 @@ date = "2023-06-1"
     name = "codepurrpurr.io" 
 +++
 
-I'm an engineer who enjoys writing about topics that genuinely interest me, both in my professional life and personal endeavors. My wide array of subjects includes automation, authentication, cloud networking, and security, among others.
+I'm a solutions engineer specializing in authentication and cloud engineering. I turn complex systems into secure, practical solutions—whether it's identity workflows or cloud infrastructure.
 
-Fascinated by the allure of solutions that may appear deceptively simple but require intricate thinking and design, I have a keen interest in unraveling their inner workings.
+This site is a technical journal and the start of my consulting practice. I work where clarity matters, security is critical, and overengineering isn't welcome.
 
-I hold great admiration for practical approaches that effectively address problems while placing utmost importance on delivering the finest user experience.
+Need help with cloud architecture or authentication? Let’s talk.
 
-Let me introduce you to the star behind the scenes, our 10-year-old cat named Latte. Whenever I dive into my code, Latte joins me, purring in approval and adding a touch of feline wisdom. Inspired by Latte's coding companionship, I proudly named the site codepurrpurr.io. Because when it comes to coding expertise, Latte's purrs speak volumes.
-
-Our Git repository is here:
-
-- <https://gitlab.com/abgmbh>
+Code and projects:
+https://github.com/codepurrpur
