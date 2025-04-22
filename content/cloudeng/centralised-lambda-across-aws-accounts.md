@@ -1,7 +1,7 @@
 +++ 
 title = "Centralized Lambda execution across AWS accounts"
 permalink = "https://codepurrpurr.io/cloudeng/centralised-lambda-across-aws-accounts/"
-date = "2025-4-21" 
+date = "2025-04-22" 
 tags = ["aws", "lambda", "iam"] 
 categories = ["lambda", "software", "dev", "iam"]
 images = ["/images/aws-iam.png"]
