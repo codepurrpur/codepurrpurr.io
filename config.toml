@@ -44,17 +44,16 @@ PygmentsStyle = "monokai"
   images = [""]
 
   # Theme settings
-  defaultTheme = "dark"
+  defaultTheme = "light"
 
   [params.footer]
-    trademark = true
-    rss = true
-    copyright = true
-    author = true
+    trademark = false
+    rss = false
+    copyright = false
+    author = false
 
     topText = []
     bottomText = [
-      "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
       "Made with &#10084; by codepurrpurr"
     ]
 
@@ -66,7 +65,7 @@ PygmentsStyle = "monokai"
 [languages]
 
   [languages.en]
-    title = "Chris Zhang"
+    title = "Platform Engineering and Authentication"
     subtitle = ""
     keywords = "platform engineering, authentication"
 
@@ -75,7 +74,7 @@ PygmentsStyle = "monokai"
     readOtherPosts = "Read other posts"
 
     [languages.en.params.logo]
-      logoText = "codepurrpurr.io"
+      logoText = "Chris Zhang"
       logoHomeLink = "/"
 
 [[params.social]]
