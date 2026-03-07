@@ -35,3 +35,13 @@ mjg-local.auto.tfvars
 .vscode/*
 !.vscode/extensions.json
 .byebug_history
+
+# Hugo generated output and caches
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Local editor/OS artifacts
+.idea/
+*.swp
+*.swo

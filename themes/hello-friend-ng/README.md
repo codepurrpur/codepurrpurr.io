@@ -41,6 +41,7 @@ This theme was highly inspired by the [hello-friend](https://github.com/panr/hug
 - Support for sharing buttons
 - Support for [Commento](https://commento.io)
 - Support for [Plausible](https://plausible.io) (thanks to [@Joffcom](https://github.com/Joffcom))
+- Support for [utterances](https://utteranc.es/) comment system
 
 ## How to start
 
@@ -49,13 +50,13 @@ You can download the theme manually by going to [https://github.com/rhazdon/hugo
 You can also clone it directly to your Hugo folder:
 
 ``` bash
-$ git clone https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng
+git clone https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng
 ```
 
 If you don't want to make any radical changes, it's the best option, because you can get new updates when they are available. To do so, include it as a git submodule:
 
 ``` bash
-$ git submodule add https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng
+git submodule add https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng
 ```
 
 ## How to configure
@@ -69,7 +70,7 @@ baseurl      = "localhost"
 title        = "My Blog"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
-paginate     = 10
+pagination.pagerSize     = 10
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -102,10 +103,12 @@ paginate     = 10
 [languages]
   [languages.en]
     title = "Hello Friend NG"
-    subtitle = "A simple theme for Hugo"
     keywords = ""
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
     readOtherPosts = "Read other posts"
+
+  [languages.en.params]
+    subtitle  = "A simple theme for Hugo"
 
     [languages.en.params.logo]
       logoText = "hello friend ng"
@@ -120,6 +123,19 @@ paginate     = 10
     identifier = "blog"
     name       = "Blog"
     url        = "/posts"
+
+  # and submenus
+  [[menu.main]]
+    identifier  = "parent"
+    name        = "Parent"
+    url         = "/parent"
+    hasChildren = true
+
+  [[menu.main]]
+    identifier  = "child"
+    name        = "Child"
+    url         = "/parent/child"
+    parent      = "parent"
 ```
 
 ## More things
@@ -183,7 +199,7 @@ If you need another one, just open an issue or create a pull request with your w
 
 ## Known issues
 
-There is a bug in Hugo that sometimes causes the main page not to render correctly. The reason is an empty taxonomy part.
+There is a bug in Hugo that sometimes causes the main page not to render correctly. The reason is an taxonomy part with empty entries.
 Related issue tickets: [!14](https://github.com/rhazdon/hugo-theme-hello-friend-ng/issues/14) [!59](https://github.com/rhazdon/hugo-theme-hello-friend-ng/issues/59).
 
 Either you comment it out completely or you write the following in
@@ -192,6 +208,12 @@ Either you comment it out completely or you write the following in
 [taxonomies]
   tag      = "tags"
   category = "categories"
+```
+
+In case you'd like to actually have an empty taxonomy, you can do so by specifying the following (i.e. without adding any entries to the taxonomy part):
+
+``` toml
+[taxonomies]
 ```
 
 ## How to edit the theme
@@ -205,6 +227,6 @@ If you like my work and if you think this project is worth to support it, just <
 
 ## Licence
 
-Copyright © 2019-2021 Djordje Atlialp
+Copyright © 2019-2025 Djordje Atlialp
 
 The theme is released under the MIT License. Check the [original theme license](https://github.com/rhazdon/hugo-theme-hello-friend-ng/blob/master/LICENSE.md) for additional licensing information.

@@ -1,15 +1,29 @@
-+++ 
-title = "About" 
-date = "2023-06-1"
-[ author ] 
-    name = "codepurrpurr.io" 
++++
+title = "About"
+date = "2023-06-01"
+
+[author]
+name = "Chris Zhang"
 +++
 
-I'm a solutions engineer specializing in authentication and cloud engineering. I turn complex systems into secure, practical solutions—whether it's identity workflows or cloud infrastructure.
+I work in two areas: **platform engineering** and **authentication**.
 
-This site is a technical journal and the start of my consulting practice. I work where clarity matters, security is critical, and overengineering isn't welcome.
+Platform engineering focuses on how infrastructure is structured, automated, and operated at scale.
 
-Need help with cloud architecture or authentication? Let’s talk.
+Authentication focuses on how access is established and trusted across systems.
+
+These are foundational systems. When they are designed well, everything else becomes simpler.
+
+This site is a collection of notes and designs from my work. The goal is not volume, but clarity — concise explanations of systems that are often made unnecessarily complex.
+
+My approach favors:
+
+- simple architectures
+- clear trust boundaries
+- practical automation
+- minimal moving parts
+
+I occasionally take on consulting work in platform engineering and authentication.
 
 Code and projects:
 https://github.com/codepurrpur
