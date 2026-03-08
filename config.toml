@@ -25,9 +25,6 @@ PygmentsStyle = "monokai"
   author = "Chris Zhang"
   homeSubtitle = "Platform Engineering and Authentication"
 
-  # Load custom CSS
-  customCSS = ["css/custom.css"]
-
   # Date formats
   dateform = "Jan 2, 2006"
   dateformShort = "Jan 2"

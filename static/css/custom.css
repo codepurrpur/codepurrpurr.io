@@ -22,32 +22,3 @@
 .post {
   margin-bottom: 2.2rem;
 }
-
-/* Center title/content blocks for top-level landing pages */
-
-.section-landing,
-.about-landing {
-  min-height: calc(100vh - 220px);
-  display: flex;
-  align-items: center;
-}
-
-.section-landing .posts,
-.about-landing .post {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.section-landing .posts>h1,
-.about-landing .post-title {
-  text-align: center;
-  margin-top: 0;
-}
-
-@media (max-width: 768px) {
-
-  .section-landing,
-  .about-landing {
-    min-height: calc(100vh - 180px);
-  }
-}
