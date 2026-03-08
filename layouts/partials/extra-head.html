@@ -1,0 +1,30 @@
+{{- if .IsHome }}
+<style>
+    .home-tagline {
+        max-width: 34rem;
+        margin: 0.9rem auto 1rem;
+        font-size: 1.5rem;
+        line-height: 1.8;
+        letter-spacing: 0.02em;
+        color: #999;
+    }
+
+    [data-theme="dark"] .home-tagline {
+        color: #b3b3bd;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .home-tagline {
+            color: #b3b3bd;
+        }
+    }
+
+    @media (max-width: 684px) {
+        .home-tagline {
+            max-width: 28rem;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+    }
+</style>
+{{- end }}
