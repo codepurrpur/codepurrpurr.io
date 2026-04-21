@@ -467,6 +467,7 @@ hr {
 
 .page--home .container {
   background: $light-background;
+  color: $light-color;
 }
 
 .home {
@@ -551,10 +552,12 @@ hr {
 
 .home-section {
   padding: var(--space-8) 0;
+  color: $light-color;
 }
 
 .home-section--muted {
   background: $light-background-secondary;
+  color: $light-color;
 }
 
 .page-hero {
@@ -609,6 +612,7 @@ hr {
   border: 1px solid $light-border-color;
   padding: var(--space-4);
   background: $light-background;
+  color: $light-color;
 }
 
 .domain-card__eyebrow,
@@ -662,6 +666,11 @@ hr {
   grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.9fr);
   gap: var(--space-6);
   align-items: start;
+}
+
+.credibility-copy,
+.credibility-list {
+  color: $light-color;
 }
 
 .credibility-list ul {

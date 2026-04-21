@@ -10,6 +10,7 @@
     padding: var(--space-2);
     border: 1px solid $light-border-color;
     background: $light-background;
+    color: $light-color;
   }
 
   &__inner {
@@ -44,6 +45,7 @@
   &-trigger {
     width: 24px;
     height: 24px;
+    color: $accent-color;
     fill: currentColor;
     margin-left: 10px;
     cursor: pointer;
