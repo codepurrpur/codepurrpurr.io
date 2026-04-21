@@ -54,6 +54,12 @@
       border-top: 1px solid $light-border-color;
     }
 
+    strong,
+    em,
+    i {
+      color: $light-color-variant;
+    }
+
     h2 {
       margin-top: var(--space-8);
       margin-bottom: var(--space-2);
