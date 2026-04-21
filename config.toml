@@ -24,14 +24,14 @@ PygmentsStyle = "monokai"
   # Site identity
   author = "Chris Zhang"
   homeSubtitle = "Platform Engineering and Authentication"
-  homeTagline = "Technical notes and designs."
-  siteEyebrow = "Chris Zhang / Cloud Engineering / Authentication"
+  homeTagline = "Notes on platform and identity systems."
+  siteEyebrow = "Chris Zhang / Platform Engineering / Authentication"
   footerEyebrow = "codepurrpurr.io"
-  footerTitle = "Platform engineering and authentication."
+  footerTitle = "Platform and identity systems, reduced to their working parts."
 
   [params.home]
-    headline = "Engineering solutions, securing identity"
-    subheading = "Technical writing on authentication, platform engineering, and cloud systems."
+    headline = "Engineering systems, securing identity"
+    subheading = "Notes on authentication, platform engineering, and cloud systems."
     primaryCTAText = "Read Authentication"
     primaryCTAURL = "authentication/"
     secondaryCTAText = "Read Platform Engineering"
@@ -44,14 +44,14 @@ PygmentsStyle = "monokai"
     ]
 
     domainsEyebrow = "Domains"
-    domainsTitle = "Two operating areas"
-    domainsSummary = "Architecture notes organized around authentication and platform engineering."
+    domainsTitle = "Two system boundaries"
+    domainsSummary = "Authentication defines access. Platform engineering defines how systems are built and operated."
 
     aboutEyebrow = "About"
-    aboutTitle = "Systems writing for real operating constraints"
+    aboutTitle = "Writing for operational clarity"
     aboutParagraphs = [
-      "I work in platform engineering and authentication, with an emphasis on clear trust boundaries, practical automation, and architectures that remain understandable under operational pressure.",
-      "This site collects concise notes and design write-ups intended to make foundational systems easier to reason about."
+      "I work across platform engineering and authentication.",
+      "The focus is simple architecture, clear trust boundaries, practical automation, and systems that remain understandable under pressure."
     ]
     approachLabel = "Approach"
     approachItems = [
@@ -64,13 +64,13 @@ PygmentsStyle = "monokai"
 
   [params.sections.authentication]
     title = "Authentication"
-    summary = "Design notes on identity, access, trust boundaries, and authentication systems."
-    homeSummary = "How access is established, constrained, and trusted across systems."
+    summary = "Identity, access, trust boundaries, and authentication systems."
+    homeSummary = "How access is established, constrained, and trusted."
 
   [params.sections.platform-engineering]
     title = "Platform Engineering"
-    summary = "Infrastructure architecture, automation patterns, and operating models for cloud platforms."
-    homeSummary = "How infrastructure is structured, automated, and operated with minimal friction."
+    summary = "Infrastructure architecture, automation patterns, and cloud operating models."
+    homeSummary = "How infrastructure is structured, automated, and operated."
 
   # Date formats
   dateform = "Jan 2, 2006"
@@ -83,7 +83,7 @@ PygmentsStyle = "monokai"
   enableSharingButtons = true
 
   # Metadata
-  description = "Chris Zhang writes about platform engineering and authentication systems."
+  description = "Chris Zhang writes about platform engineering, authentication, and cloud systems."
   keywords = "platform engineering, authentication, identity, IAM, PKI, cloud architecture, AWS, automation"
   images = [""]
 
@@ -98,7 +98,7 @@ PygmentsStyle = "monokai"
 
     topText = []
     bottomText = [
-      "Made with &#10084; by codepurrpurr"
+      "codepurrpurr.io"
     ]
 
 [params.favicon.color]

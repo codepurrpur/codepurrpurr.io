@@ -2,18 +2,30 @@
     <div class="content">
         <main>
             <article class="post">
-                <header class="page-hero page-hero--article">
-                    <div class="section-shell">
-                        <h1 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
-                        {{ if .Params.Description }}
-                            <p>{{ .Params.Description }}</p>
-                        {{ else if .Summary }}
-                            <p>{{ .Summary | plainify | truncate 140 }}</p>
-                        {{ end }}
-                    </div>
-                </header>
-
                 <div class="post-body">
+                <header class="post-heading">
+                    {{ if and .Section (ne .Section "about") }}
+                    <p class="section-eyebrow">
+                        {{ .Section | humanize }}
+                    </p>
+                    {{ end }}
+                    <h1 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></h1>
+                    {{ if .Params.Description }}
+                        <p class="post-heading__summary">{{ .Params.Description }}</p>
+                    {{ end }}
+                    {{ if and .Date .Section (ne .Section "about") }}
+                        <p class="post-heading__date">
+                            {{ if .Site.Params.dateformNum }}
+                                {{ time.Format .Site.Params.dateformNum .Date }}
+                            {{ else }}
+                                {{ time.Format "2006-01-02" .Date }}
+                            {{ end }}
+                        </p>
+                    {{ end }}
+                </header>
+                {{ if and .Section (ne .Section "about") }}
+                <div class="post-card post-card--page">
+                {{ end }}
 
                 {{ if .Params.Cover }}
                     <figure class="post-cover">
@@ -37,6 +49,9 @@
                 <div class="post-content">
                     {{ .Content }}
                 </div>
+                {{ if and .Section (ne .Section "about") }}
+                </div>
+                {{ end }}
                 </div>
             </article>
 
