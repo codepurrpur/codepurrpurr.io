@@ -1,6 +1,7 @@
 +++
 title = "About"
 date = "2023-06-01"
+description = "I write about platform engineering, authentication, and cloud systems with an emphasis on clarity and operating constraints."
 
 [author]
 name = "Chris Zhang"

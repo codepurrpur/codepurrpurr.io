@@ -1,7 +1,7 @@
 baseurl = "https://codepurrpurr.io"
 title = "Chris Zhang"
 languageCode = "en-us"
-theme = "hello-friend-ng"
+theme = "codepurrpurr"
 author = "Chris Zhang"
 paginate = 11
 pluralizelisttitles = false
@@ -25,6 +25,52 @@ PygmentsStyle = "monokai"
   author = "Chris Zhang"
   homeSubtitle = "Platform Engineering and Authentication"
   homeTagline = "Technical notes and designs."
+  siteEyebrow = "Chris Zhang / Cloud Engineering / Authentication"
+  footerEyebrow = "codepurrpurr.io"
+  footerTitle = "Platform engineering and authentication."
+
+  [params.home]
+    headline = "Engineering solutions, securing identity"
+    subheading = "Technical writing on authentication, platform engineering, and cloud systems."
+    primaryCTAText = "Read Authentication"
+    primaryCTAURL = "authentication/"
+    secondaryCTAText = "Read Platform Engineering"
+    secondaryCTAURL = "platform-engineering/"
+    focusLabel = "Focus"
+    focusItems = [
+      "Identity architecture",
+      "Infrastructure automation",
+      "Trust boundaries and operating models"
+    ]
+
+    domainsEyebrow = "Domains"
+    domainsTitle = "Two operating areas"
+    domainsSummary = "Architecture notes organized around authentication and platform engineering."
+
+    aboutEyebrow = "About"
+    aboutTitle = "Systems writing for real operating constraints"
+    aboutParagraphs = [
+      "I work in platform engineering and authentication, with an emphasis on clear trust boundaries, practical automation, and architectures that remain understandable under operational pressure.",
+      "This site collects concise notes and design write-ups intended to make foundational systems easier to reason about."
+    ]
+    approachLabel = "Approach"
+    approachItems = [
+      "Simple architectures over layered complexity",
+      "Operational clarity over abstraction for its own sake",
+      "Security and identity designed as system structure"
+    ]
+    aboutLinkText = "Read more"
+    aboutLinkURL = "about/"
+
+  [params.sections.authentication]
+    title = "Authentication"
+    summary = "Design notes on identity, access, trust boundaries, and authentication systems."
+    homeSummary = "How access is established, constrained, and trusted across systems."
+
+  [params.sections.platform-engineering]
+    title = "Platform Engineering"
+    summary = "Infrastructure architecture, automation patterns, and operating models for cloud platforms."
+    homeSummary = "How infrastructure is structured, automated, and operated with minimal friction."
 
   # Date formats
   dateform = "Jan 2, 2006"
@@ -87,13 +133,16 @@ PygmentsStyle = "monokai"
   identifier = "platform-engineering"
   name = "Platform Engineering"
   url = "platform-engineering/"
+  weight = 3
 
 [[menu.main]]
   identifier = "authentication"
   name = "Authentication"
   url = "authentication/"
+  weight = 2
 
 [[menu.main]]
   identifier = "about"
   name = "About"
   url = "about/"
+  weight = 1

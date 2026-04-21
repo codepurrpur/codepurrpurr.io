@@ -32,7 +32,7 @@ mjg-local.auto.tfvars
 *.tfvars
 
 .DS_Store
-.vscode/*
+.vscode/
 !.vscode/extensions.json
 .byebug_history
 

@@ -1,0 +1,55 @@
+{{ define "main" }}
+    {{ $paginator := .Paginate .Data.Pages }}
+    {{ $sectionLabel := .Title | humanize }}
+    {{ $sectionSummary := "Technical notes and architecture write-ups." }}
+    {{ $sectionConfig := index .Site.Params.sections .Section }}
+    {{ if $sectionConfig }}
+        {{ $sectionLabel = $sectionConfig.title }}
+        {{ $sectionSummary = $sectionConfig.summary }}
+    {{ else if eq .Kind "taxonomy" }}
+        {{ $sectionLabel = .Title }}
+        {{ $sectionSummary = "Posts grouped by taxonomy." }}
+    {{ end }}
+
+    <div class="content">
+        <main>
+            <section class="page-hero">
+                <div class="section-shell">
+                    <h1>{{ $sectionLabel }}</h1>
+                    <p>{{ $sectionSummary }}</p>
+                </div>
+            </section>
+
+            <section class="posts">
+
+                {{ if .Content }}
+                    <div class="posts-intro">{{ .Content }}</div>
+                {{ end }}
+
+                {{ range $paginator.Pages.GroupByDate "2006" }}
+                    <div class="posts-group">
+                        <div class="post-year">{{ .Key }}</div>
+
+                        <ul class="posts-list">
+                            {{ range .Pages }}
+                                <li class="post-item">
+                                    <a href="{{ .RelPermalink }}" class="post-item-inner">
+                                        <span class="post-title">{{.Title}}</span>
+                                        <span class="post-day">
+                                            {{ if .Site.Params.dateformShort }}
+                                                {{ time.Format .Site.Params.dateformShort .Date }}
+                                            {{ else }}
+                                                {{ time.Format "Jan 2" .Date }}
+                                            {{ end }}
+                                        </span>
+                                    </a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                {{ end }}
+            {{ partial "pagination-list.html" . }}
+            </section>
+        </main>
+    </div>
+{{ end }}

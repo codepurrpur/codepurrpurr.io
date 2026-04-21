@@ -1,0 +1,12 @@
+name = "codepurrpurr"
+license = "MIT"
+licenselink = "https://github.com/codepurrpur/codepurrpurr.io"
+description = "First-party Hugo theme for codepurrpurr.io."
+homepage = "https://codepurrpurr.io"
+tags = ["blog", "technical-writing", "editorial"]
+features = ["responsive", "scss", "dark-hero"]
+min_version = "0.157.0"
+
+[author]
+  name = "Chris Zhang"
+  homepage = "https://codepurrpurr.io"

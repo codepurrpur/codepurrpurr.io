@@ -1,6 +1,6 @@
 +++
 title = "Identity-Centric Access Control with Vault and Okta"
-permalink = "https://codepurrpurr.io/auth/vault-okta-identity-architecture/"
+permalink = "/auth/vault-okta-identity-architecture/"
 date = "2024-05-31"
 tags = ["vault", "okta", "identity"]
 categories = ["authentication"]

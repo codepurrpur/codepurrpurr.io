@@ -1,0 +1,21 @@
+<footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__brand">
+            <p class="footer__eyebrow">{{ .Site.Params.footerEyebrow }}</p>
+            <p class="footer__title">{{ .Site.Params.footerTitle }}</p>
+        </div>
+        <div class="footer__nav">
+            {{ range sort .Site.Menus.main "Weight" -}}
+                <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+            {{ end }}
+        </div>
+        <div class="footer__content">
+            {{ with .Site.Params.social }}
+                {{ partial "social-icons.html" . }}
+            {{ end }}
+            {{with .Site.Params.footer.bottomText}}
+                {{ range . }}<span>{{ . | safeHTML}}</span>{{ end }}
+            {{ end }}
+        </div>
+    </div>
+</footer>

@@ -1,6 +1,6 @@
 +++
 title = "Hardware Key Authentication Architecture with YubiKey and Azure AD"
-permalink = "https://codepurrpurr.io/auth/yubikey-azure-ad-architecture/"
+permalink = "/auth/yubikey-azure-ad-architecture/"
 date = "2023-04-10"
 tags = ["yubikey", "azuread", "authentication"]
 categories = ["authentication"]

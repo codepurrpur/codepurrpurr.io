@@ -1,6 +1,6 @@
 +++
 title = "Credential Lifecycle Management for Long-Running AWS Automation"
-permalink = "https://codepurrpurr.io/platform/aws-credential-refresh/"
+permalink = "/platform/aws-credential-refresh/"
 date = "2023-10-23"
 tags = ["aws", "iam", "automation"]
 categories = ["platform-engineering"]

@@ -1,0 +1,105 @@
+.posts {
+  width: 100%;
+  max-width: var(--container-md);
+  text-align: left;
+  padding: var(--space-8) var(--space-3);
+  margin: 0 auto;
+
+  @media #{$media-size-tablet} {
+    max-width: var(--container-sm);
+  }
+
+  &-intro {
+    margin-bottom: var(--space-6);
+    color: $light-color-secondary;
+  }
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $light-border-color;
+
+    @media (prefers-color-scheme: dark) {
+      border-bottom-color: $dark-border-color;
+    }
+
+    [data-theme=dark] & {
+      border-bottom-color: $dark-border-color;
+    }
+  }
+
+  &-group {
+    display: flex;
+    margin-bottom: var(--space-6);
+    line-height: normal;
+
+    @media #{$media-size-tablet} {
+      display: block;
+    }
+  }
+
+  &-list {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .post {
+    &-title {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    &-year {
+      padding-top: var(--space-1);
+      margin-right: var(--space-4);
+      font-size: var(--text-h3);
+      @include dimmed;
+
+      @media #{$media-size-tablet} {
+        margin: 0 0 var(--space-2);
+      }
+    }
+
+    &-item {
+      border-bottom: 1px solid $light-border-color;
+
+      @media (prefers-color-scheme: dark) {
+        border-bottom-color: $dark-border-color;
+      }
+
+      [data-theme=dark] & {
+        border-bottom-color: $dark-border-color;
+      }
+
+      &-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: var(--space-2);
+        padding: var(--space-2) 0;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      @media #{$media-size-phone} {
+        &-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: var(--space-1);
+        }
+      }
+    }
+
+    &-day {
+      flex-shrink: 0;
+      margin-left: var(--space-2);
+      font-size: var(--text-small);
+      @include dimmed;
+
+      @media #{$media-size-phone} {
+        margin-left: 0;
+      }
+    }
+  }
+}

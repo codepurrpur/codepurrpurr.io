@@ -1,6 +1,6 @@
 +++
 title = "Centralized Control Plane for Multi-Account AWS Automation"
-permalink = "https://codepurrpurr.io/platform/centralized-lambda-multi-account/"
+permalink = "/platform/centralized-lambda-multi-account/"
 date = "2025-04-22"
 tags = ["aws", "lambda", "platform"]
 categories = ["platform-engineering"]

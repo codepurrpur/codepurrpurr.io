@@ -1,0 +1,120 @@
+.menu {
+  z-index: 9999;
+  background: transparent;
+
+  @media #{$media-size-phone} {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    margin: 0;
+    padding: var(--space-2);
+    border: 1px solid $light-border-color;
+    background: $light-background;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    gap: var(--space-3);
+    list-style: none;
+    font-size: var(--text-small);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    li {
+      margin: 0;
+    }
+
+    @media #{$media-size-phone} {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+
+      li {
+        width: 100%;
+      }
+    }
+  }
+
+  &-trigger {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    margin-left: 10px;
+    cursor: pointer;
+    display: none;
+
+    @media #{$media-size-phone} {
+      display: block;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: var(--space-1) 0;
+    border-bottom: 2px solid transparent;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.menu a.is-active {
+  border-bottom-color: $accent-color;
+}
+
+.submenu {
+  background: transparent;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  li a,
+  .dropbtn {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: $light-background;
+    border: 1px solid $light-border-color;
+
+    @media (prefers-color-scheme: dark) {
+      background: $dark-background;
+      border-color: $dark-border-color;
+    }
+
+    [data-theme=dark] & {
+      background: $dark-background;
+      border-color: $dark-border-color;
+    }
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    text-align: left;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
