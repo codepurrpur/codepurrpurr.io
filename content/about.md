@@ -7,15 +7,19 @@ description = "I write about platform engineering, authentication, and cloud sys
 name = "Chris Zhang"
 +++
 
-I work in two areas: **platform engineering** and **authentication**.
+I work across **platform engineering** and **authentication**.
 
-Platform engineering focuses on how infrastructure is structured, automated, and operated at scale.
+Platform engineering is about structure, automation, and operating models.
 
-Authentication focuses on how access is established and trusted across systems.
+Authentication is about how access is established, constrained, and trusted.
 
-These are foundational systems. When they are designed well, everything else becomes simpler.
+Both are foundational systems.
 
-This site is a collection of notes and designs from my work. The goal is not volume, but clarity — concise explanations of systems that are often made unnecessarily complex.
+When they are designed well, everything else becomes easier to reason about.
+
+This site collects notes and designs from that work.
+
+The goal is clarity, not volume.
 
 My approach favors:
 

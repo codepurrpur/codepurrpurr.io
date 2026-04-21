@@ -10,13 +10,19 @@ author = "Chris Zhang"
 
 ## Problem
 
-Terraform is often used as a direct infrastructure authoring tool. Even with modules, consumers still end up thinking in terms of VPCs, subnets, AMIs, security groups, listeners, and target groups.
+Terraform is often treated as a direct infrastructure authoring tool.
 
-That model does not scale well for a platform.
+Even with modules, consumers still think in VPCs, subnets, AMIs, security groups, listeners, and target groups.
 
-A platform interface should let consumers describe **service intent**, while the platform resolves topology, implementation, and provider-specific behavior internally.
+That is not a platform interface.
 
-The goal is not to hide every infrastructure decision. Some inputs, such as network sizing, can still be valid service-level parameters. The goal is to hide the **mechanics required to realize those decisions**.
+A platform interface should let consumers describe service intent.
+
+The platform should resolve topology, implementation, and provider behavior internally.
+
+The goal is not to hide every infrastructure decision. Network sizing can still be a valid service-level parameter.
+
+The goal is to hide the mechanics required to realize that decision.
 
 ---
 
@@ -29,9 +35,9 @@ Layer 1 — Typed Platform Contract
 Layer 2 — Service Composition
 Layer 3 — Platform Implementation Modules
 Layer 4 — Provider / Community Modules and AWS Resources
-````
+```
 
-The flow looks like this:
+The flow:
 
 ```text
 Service Intent
@@ -45,15 +51,17 @@ Provider / Community Implementation
 AWS Resources
 ```
 
-Each layer has a distinct responsibility.
+Each layer owns one responsibility.
 
 ---
 
 ## Layer 1 — Typed Platform Contract
 
-Layer 1 is the consumer-facing contract.
+Layer 1 is the consumer contract.
 
-Consumers describe a service through a typed object. The contract exposes the parts of the system they are expected to control:
+Consumers describe a service through a typed object.
+
+The contract exposes only the decisions they are expected to make:
 
 * whether the service is enabled
 * network sizing
@@ -100,7 +108,7 @@ services = {
 }
 ```
 
-The schema is enforced through Terraform typing and validation.
+Terraform typing and validation enforce the schema.
 
 ```hcl
 variable "npaas_config" {
@@ -139,15 +147,15 @@ variable "npaas_config" {
 }
 ```
 
-This layer defines **what the consumer can ask for**.
+This layer defines what the consumer can ask for.
 
 ---
 
 ## Layer 2 — Service Composition
 
-Layer 2 translates service intent into platform topology.
+Layer 2 translates service intent into topology.
 
-This layer performs orchestration such as:
+It performs orchestration:
 
 * filtering enabled services
 * deciding whether a VPC should be created
@@ -184,15 +192,17 @@ locals {
 }
 ```
 
-This layer does not implement raw AWS resources directly. It decides **how a service is assembled**.
+This layer does not implement AWS resources directly.
 
-That is the part that turns Terraform from a module library into a platform.
+It decides how a service is assembled.
+
+That is what turns Terraform from a module library into a platform.
 
 ---
 
 ## Layer 3 — Platform Implementation Modules
 
-Layer 3 contains your platform modules:
+Layer 3 contains platform modules:
 
 * `vpc`
 * `security_group`
@@ -200,9 +210,9 @@ Layer 3 contains your platform modules:
 * `alb`
 * `secrets`
 
-These modules are still your abstraction layer. They are not the bottom of the stack.
+These modules are abstractions, not the bottom of the stack.
 
-Their job is to hide platform and provider-specific behavior behind stable module interfaces.
+Their job is to hide platform and provider behavior behind stable interfaces.
 
 ### VPC module
 
@@ -215,7 +225,9 @@ The VPC module hides:
 * TGW subnet allocation
 * NAT behavior
 
-The caller provides network intent. The module implements the network.
+The caller provides network intent.
+
+The module implements the network.
 
 ### Instance module
 
@@ -259,15 +271,17 @@ The ALB module hides:
 * routing rule construction
 * target group attachments
 
-The caller expresses ingress intent. The module implements load balancer behavior.
+The caller expresses ingress intent.
 
-This layer defines **how platform capabilities are implemented behind your own abstractions**.
+The module implements load balancer behavior.
+
+This layer defines how platform capabilities are implemented behind internal abstractions.
 
 ---
 
 ## Layer 4 — Provider / Community Implementation
 
-Layer 4 is where Terraform actually touches AWS.
+Layer 4 is where Terraform touches AWS.
 
 This includes:
 
@@ -277,23 +291,25 @@ This includes:
 * raw `aws_*` resources
 * `data.aws_*` lookups
 
-For example, your VPC module delegates VPC construction to the community VPC module. Your ALB module delegates ALB behavior to the community ALB module. Your platform modules sit above that layer and shape how those provider-specific tools are used.
+For example, the VPC module can delegate VPC construction to a community module. The ALB module can delegate load balancer behavior the same way.
 
-This is the implementation substrate, not the platform contract.
+Platform modules sit above this layer and shape how provider-specific tools are used.
+
+This is implementation substrate, not platform contract.
 
 ---
 
 ## What Layering Improves
 
-Layering provides three important benefits.
+Layering provides three benefits.
 
 ### Stable service interface
 
-Consumers interact with a service contract rather than infrastructure primitives.
+Consumers use a service contract instead of infrastructure primitives.
 
 ### Encapsulation
 
-Cloud-specific behavior is absorbed into lower layers.
+Lower layers absorb cloud-specific behavior.
 
 Examples include:
 
@@ -305,9 +321,9 @@ Examples include:
 
 ### Internal evolution
 
-The platform can change how infrastructure is implemented without changing how consumers describe services.
+The platform can change implementation without changing consumer intent.
 
-That allows the platform team to evolve:
+The platform team can evolve:
 
 * subnet layouts
 * NAT strategy
@@ -315,17 +331,21 @@ That allows the platform team to evolve:
 * ALB conventions
 * community module choices
 
-while keeping the consumer contract stable.
+without changing the consumer contract.
 
 ---
 
 ## What Should Stay in Layer 1
 
-Not every infrastructure-related parameter should be pushed downward.
+Not every infrastructure parameter should move downward.
 
-If a field expresses a genuine service-level decision, it belongs in Layer 1.
+If a field expresses a service-level decision, it belongs in Layer 1.
 
-In this design, network sizing is one such example. Different service types may legitimately require different VPC and subnet sizes. That is service intent, not implementation leakage.
+Network sizing is one example.
+
+Different service types may require different VPC and subnet sizes.
+
+That is service intent, not implementation leakage.
 
 The boundary is not:
 
@@ -348,15 +368,23 @@ The platform still relies on internal conventions such as:
 * OS name to AMI mappings
 * certificate lookup conventions
 
-These conventions simplify the consumer interface, but they also become part of the platform contract.
+These conventions simplify the consumer interface.
 
-There is also a structural tradeoff: if composition stays in the root module for too long, Layer 2 becomes crowded. The next natural evolution is to move service composition into an explicit `service_stack` module.
+They also become part of the platform contract.
+
+There is a structural tradeoff.
+
+If composition stays in the root module for too long, Layer 2 becomes crowded.
+
+The next move is to place service composition in an explicit `service_stack` module.
 
 ---
 
 ## Conclusion
 
-Layering Terraform is less about splitting files and more about separating responsibilities.
+Layering Terraform is not about splitting files.
+
+It is about separating responsibilities.
 
 A good platform design has:
 
@@ -365,7 +393,7 @@ A good platform design has:
 * a platform module layer that hides implementation complexity
 * a provider layer that realizes those capabilities in AWS
 
-That turns Terraform from a resource authoring tool into a platform interface.
+That turns Terraform into a platform interface.
 
 Consumers describe what they want.
 

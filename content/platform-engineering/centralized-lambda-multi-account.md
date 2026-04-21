@@ -10,21 +10,20 @@ author = "Chris Zhang"
 
 ## Problem
 
-Large AWS environments typically use **multiple accounts** for isolation and governance.
+Large AWS environments use multiple accounts for isolation and governance.
 
-Automation tasks often need to run across all accounts:
+Automation still needs to cross account boundaries:
 
 - compliance scans  
 - inventory collection  
 - tagging enforcement  
 - remediation tasks  
 
-A naive approach deploys automation into every account.  
-This creates deployment duplication and operational drift.
+Deploying the same automation into every account creates duplication and drift.
 
 ## Architecture
 
-Use a **central control plane** that executes automation across accounts.
+Use a central control plane.
 
 ```
 Central Account
@@ -36,12 +35,13 @@ STS AssumeRole
 Target Accounts
 ```
 
-Automation runs once in the central account.  
+Automation runs once.
+
 Target accounts expose access through IAM roles.
 
 ## IAM Model
 
-Each target account exposes a role trusted by the central account.
+Each target account exposes a role that trusts the central account.
 
 **Trust policy (target account)**
 
@@ -55,9 +55,9 @@ Each target account exposes a role trusted by the central account.
 }
 ```
 
-Permissions on the role define what operations automation can perform.
+The target role defines what automation can do inside that account.
 
-The Lambda role must allow:
+The Lambda execution role must be allowed to assume it:
 
 ```json
 {
@@ -69,7 +69,7 @@ The Lambda role must allow:
 
 ## Runtime
 
-The Lambda assumes a role in each account and executes tasks.
+At runtime, Lambda assumes a target role and creates a scoped client.
 
 ```python
 import boto3
@@ -93,7 +93,7 @@ def assume_role(account_id, role_name):
     )
 ```
 
-The same logic operates across any number of accounts.
+The same path works for any account that exposes the role.
 
 ## Benefits
 
@@ -104,7 +104,7 @@ The same logic operates across any number of accounts.
 
 ## Limitations
 
-This pattern is not suitable for workloads requiring:
+Avoid this pattern when work requires:
 
 - VPC-local execution  
 - high-volume data processing  
@@ -112,6 +112,6 @@ This pattern is not suitable for workloads requiring:
 
 ## Conclusion
 
-Multi-account AWS environments benefit from a **centralized automation control plane**.
+Multi-account automation needs a control plane, not repeated deployments.
 
-Using STS AssumeRole allows a single Lambda runtime to operate across accounts while maintaining strong account isolation.
+STS AssumeRole lets one Lambda runtime operate across accounts while preserving account isolation.

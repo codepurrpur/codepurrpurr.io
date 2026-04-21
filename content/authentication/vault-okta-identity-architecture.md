@@ -10,20 +10,20 @@ author = "Chris Zhang"
 
 ## Problem
 
-Cloud automation typically relies on **long-lived API credentials**.
+Cloud automation often depends on **long-lived API credentials**.
 
-Common issues:
+That creates predictable failure modes:
 
 - credentials embedded in code  
 - credentials leaked to source control  
 - complex rotation processes  
 - poor auditability  
 
-A better model derives infrastructure access **directly from authenticated identity**.
+Access should be derived from authenticated identity, not stored secrets.
 
 ## Architecture
 
-Authentication and credential generation are separated.
+Separate identity verification from credential issuance.
 
 ```
 User / Automation
@@ -37,8 +37,9 @@ Dynamic Cloud Credentials
 AWS / Azure APIs
 ```
 
-Identity verification happens in the identity provider.  
-Vault converts identity into **temporary infrastructure credentials**.
+Okta verifies identity.
+
+Vault turns that identity into temporary infrastructure credentials.
 
 ## Authentication Flow
 
@@ -58,7 +59,7 @@ Vault attaches policies based on identity attributes such as group membership.
 
 ## Dynamic Credential Generation
 
-After authentication, the client requests cloud credentials.
+After login, the client requests cloud credentials.
 
 ```
 Client
@@ -72,13 +73,11 @@ Vault generates credentials
 Temporary AWS / Azure credentials
 ```
 
-Vault communicates with the cloud provider using privileged credentials stored internally.
-
-The resulting credentials are short-lived.
+Vault uses its internal cloud integration to issue short-lived credentials.
 
 ## Infrastructure Integration
 
-Automation tools such as Terraform retrieve credentials dynamically.
+Terraform retrieves credentials at runtime.
 
 ```
 Terraform
@@ -90,28 +89,30 @@ Receive temporary IAM credentials
 Provision infrastructure
 ```
 
-No long-lived credentials are stored in the automation environment.
+The automation environment stores no durable cloud keys.
 
 ## Key Properties
 
 **Identity-derived access**
 
-Authorization decisions are based on identity attributes rather than shared secrets.
+Access follows identity attributes, not copied secrets.
 
 **Short credential lifetime**
 
-Credentials typically expire within minutes.
+Credentials expire quickly.
 
 **Centralized policy**
 
-Access rules are defined once in Vault.
+Vault owns the policy boundary.
 
 **Full audit trail**
 
-Credential issuance can be traced to an authenticated identity.
+Each credential can be traced to an authenticated identity.
 
 ## Conclusion
 
-An identity-centric access model replaces static infrastructure credentials with dynamically generated access tied to authenticated identity.
+Identity-centric access replaces static infrastructure credentials with temporary access issued from verified identity.
 
-Integrating Vault with an identity provider such as Okta allows organizations to issue short-lived credentials while maintaining centralized policy and auditability.
+Okta proves who the actor is.
+
+Vault decides what that actor can receive.

@@ -14,19 +14,17 @@ AWS automation commonly uses **temporary STS credentials**.
 
 These credentials expire after a short period.
 
-Long-running workloads such as:
+Long-running workloads may outlive them:
 
 - infrastructure provisioning  
 - migration automation  
 - large orchestration workflows  
 
-may outlive the credential lifetime.
-
 When credentials expire, API calls fail.
 
 ## Architecture
 
-Automation should maintain a **refreshable credential session**.
+Use a refreshable credential session.
 
 ```
 Automation Runtime
@@ -40,11 +38,11 @@ Temporary AWS Credentials
 AWS APIs
 ```
 
-Credentials are refreshed automatically before expiration.
+The runtime refreshes credentials before expiry.
 
 ## STS Credential Retrieval
 
-The refresh mechanism requires a function that retrieves credentials from STS.
+The refresh function retrieves a new STS session.
 
 ```python
 def get_sts_creds():
@@ -68,7 +66,7 @@ def get_sts_creds():
 
 ## Refreshable Session
 
-Botocore provides a credential wrapper that refreshes automatically.
+Botocore can wrap the retrieval function and refresh automatically.
 
 ```python
 credentials = botocore.credentials.RefreshableCredentials.create_from_metadata(
@@ -82,9 +80,7 @@ session._credentials = credentials
 session.set_config_variable("region", "ap-southeast-2")
 ```
 
-Once configured, the session refreshes credentials transparently.
-
-Clients inherit the refreshed credentials.
+After configuration, clients inherit refreshed credentials.
 
 ```python
 s3 = session.client("s3")
@@ -93,12 +89,12 @@ ddb = session.resource("dynamodb")
 
 ## Benefits
 
-- avoids long-lived IAM credentials  
-- maintains continuous authentication  
-- reduces credential management logic in automation code
+- no long-lived IAM credentials  
+- uninterrupted automation runtime  
+- less credential handling in application code
 
 ## Conclusion
 
-Long-running AWS automation should rely on **refreshable STS sessions** rather than static credentials.
+Long-running AWS automation should not stretch temporary credentials beyond their lifetime.
 
-The AWS SDK supports automatic credential renewal, allowing automation runtimes to maintain continuous access while preserving the security benefits of temporary credentials.
+Refreshable STS sessions preserve short-lived access without breaking long-running workflows.
