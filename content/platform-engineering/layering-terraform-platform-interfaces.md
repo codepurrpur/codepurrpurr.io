@@ -111,7 +111,7 @@ services = {
 Terraform typing and validation enforce the schema.
 
 ```hcl
-variable "npaas_config" {
+variable "config" {
   type = object({
     services = map(object({
       enabled                    = bool
@@ -169,7 +169,7 @@ Example:
 ```hcl
 locals {
   services = {
-    for k, v in var.npaas_config.services :
+    for k, v in var.config.services :
     k => v if try(v.enabled, false)
   }
 
@@ -257,7 +257,7 @@ data "aws_ami" "this" {
 The consumer only specifies:
 
 ```hcl
-os_ami = "amazon-linux-2"
+os = "amazon-linux-2"
 ```
 
 ### ALB module
