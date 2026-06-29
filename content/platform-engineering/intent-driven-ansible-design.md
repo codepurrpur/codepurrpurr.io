@@ -1,5 +1,5 @@
 +++
-title = "Intent-Driven Ansible Design Through Contract-Based Metadata"
+title = "Intent-Driven Ansible Through Metadata Contracts"
 permalink = "/platform-engineering/intent-driven-ansible-design/"
 date = "2026-05-22"
 tags = ["ansible", "terraform", "platform-engineering", "automation", "configuration-management"]
