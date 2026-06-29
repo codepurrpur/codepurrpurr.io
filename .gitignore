@@ -35,6 +35,7 @@ mjg-local.auto.tfvars
 .vscode/
 !.vscode/extensions.json
 .byebug_history
+.claude/
 
 # Hugo generated output and caches
 public/
