@@ -1,7 +1,7 @@
 +++
 title = "About"
 date = "2023-06-01"
-description = "I write about platform engineering, authentication, and cloud systems with an emphasis on clarity and operating constraints."
+description = "Notes, designs, and principles from work across platform engineering and authentication."
 
 [author]
 name = "Chris Zhang"
@@ -9,26 +9,22 @@ name = "Chris Zhang"
 
 I work across **platform engineering** and **authentication**.
 
-Platform engineering is about structure, automation, and operating models.
+Platform engineering shapes how software is built, operated, and changed.
 
-Authentication is about how access is established, constrained, and trusted.
+Authentication establishes identity and trust at the boundary of a system.
 
-Both are foundational systems.
+This site collects notes, designs, and principles from that work.
 
-When they are designed well, everything else becomes easier to reason about.
-
-This site collects notes and designs from that work.
-
-The goal is clarity, not volume.
+**Clarity over volume.**
 
 My approach favors:
 
 - simple architectures
-- clear trust boundaries
+- explicit trust boundaries
 - practical automation
-- minimal moving parts
+- fewer moving parts
 
-I occasionally take on consulting work in platform engineering and authentication.
+I take on selected consulting work in platform engineering and authentication.
 
-Code and projects:
+Code and projects:  
 https://github.com/codepurrpur
